@@ -13,8 +13,11 @@ class CreateDocumentosTable extends Migration
      */
     public function up()
     {
-        Schema::create('tw_documentos_corporativos', function (Blueprint $table) {
-            $table->id();
+        Schema::create('tw_documentos', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('S_Nombre',45);
+            $table->tinyInteger('S_Obligatorio');
+            $table->string('S_Descripcion',255)->nullable();
             $table->timestamps();
         });
     }

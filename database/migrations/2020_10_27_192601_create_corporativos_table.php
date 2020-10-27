@@ -14,7 +14,8 @@ class CreateCorporativosTable extends Migration
     public function up()
     {
         Schema::create('tw_corporativos', function (Blueprint $table) {
-            $table->id();
+            // No se encontró forma 
+            $table->increments('id');
             $table->string('S_NombreCorto',45);
             $table->string('S_NombreCompleto',75);
 
@@ -25,10 +26,11 @@ class CreateCorporativosTable extends Migration
             $table->string('S_DBUsuario',45);
             $table->string('S_DBPassword',45);
             $table->string('S_SystemURL',255);
-            $table->smallInteger('S_Activo',1);
+            $table->tinyInteger('S_Activo');
             $table->timestamp('D_FechaIncorporación');
             $table->timestamps();
             $table->softDeletes();
+
         });
     }
 
