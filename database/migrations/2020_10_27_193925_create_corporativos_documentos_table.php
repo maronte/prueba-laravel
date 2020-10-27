@@ -17,9 +17,9 @@ class CreateCorporativosDocumentosTable extends Migration
 
             // Columnas
             $table->increments('id');
-            $table->unsignedInteger('tw_corporativos_id');
+            $table->unsignedBigInteger('tw_corporativos_id');
             $table->unsignedInteger('tw_documentos_id');
-            $table->string('S_ArchivoUrl', 255)->nullable();
+            $table->string('S_ArchivoUrl', 450)->nullable();
             $table->timestamps();
 
             // Llaves foráneas

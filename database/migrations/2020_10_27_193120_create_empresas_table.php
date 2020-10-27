@@ -30,14 +30,14 @@ class CreateEmpresasTable extends Migration
             $table->integer('N_CodigoPostal')->nullable();
 
             $table->string('S_UsoCFDI', 45)->nullable();
-            $table->string('S_UrlRFC', 255)->nullable();
-            $table->string('S_UrlActaConstitutiva', 255)->nullable();
+            $table->string('S_UrlRFC', 450)->nullable();
+            $table->string('S_UrlActaConstitutiva', 450)->nullable();
 
  
             $table->tinyInteger('S_Activo');
             $table->string('S_Comentarios', 255);
 
-            $table->unsignedInteger('tw_corporativos_id');
+            $table->unsignedBigInteger('tw_corporativos_id');
 
             $table->timestamps();
             $table->softDeletes();
