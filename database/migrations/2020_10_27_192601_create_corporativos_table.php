@@ -15,17 +15,17 @@ class CreateCorporativosTable extends Migration
     {
         Schema::create('tw_corporativos', function (Blueprint $table) {
             // No se encontró forma 
-            $table->increments('id');
+            $table->id();
             $table->string('S_NombreCorto',45);
             $table->string('S_NombreCompleto',75);
 
             // Atributo pendiente de validación
-            $table->string('S_LogoURL')->nullable();
+            $table->string('S_LogoURL',450)->nullable();
 
             $table->string('S_DBName',45);
             $table->string('S_DBUsuario',45);
             $table->string('S_DBPassword',45);
-            $table->string('S_SystemURL',255);
+            $table->string('S_SystemURL',450);
             $table->tinyInteger('S_Activo');
             $table->timestamp('D_FechaIncorporación');
             $table->timestamps();
