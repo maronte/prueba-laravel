@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Corporativo extends Model
 {
+
+    use SoftDeletes;
 
     const ACTIVO = 1;
     const INACTIVO = 0;

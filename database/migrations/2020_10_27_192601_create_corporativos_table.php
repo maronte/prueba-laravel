@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateCorporativosTable extends Migration
@@ -27,7 +28,7 @@ class CreateCorporativosTable extends Migration
             $table->string('S_DBPassword',45);
             $table->string('S_SystemURL',450);
             $table->tinyInteger('S_Activo');
-            $table->timestamp('D_FechaIncorporación');
+            $table->timestamp('D_FechaIncorporacion');
             $table->timestamps();
             $table->softDeletes();
 
@@ -40,7 +41,8 @@ class CreateCorporativosTable extends Migration
      * @return void
      */
     public function down()
-    {
+    {   
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('tw_corporativos');
     }
 }
