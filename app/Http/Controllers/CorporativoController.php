@@ -54,7 +54,12 @@ class CorporativoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Corporativo $corporativo)
-    {
+    {   
+        // Accedemos a las propiedades dinámicas del modelo para crearlas
+        $corporativo->contacto;
+        $corporativo->empresas;
+        $corporativo->documentos;
+        
         return $this->showOne($corporativo, '');
     }
 

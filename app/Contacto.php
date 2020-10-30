@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contacto extends Model
 {
-    protected $table = 'tw_contactos_corporativo';
+    protected $table = 'tw_contactos_corporativos';
 
     protected $fillable = [
         'S_Nombre',
@@ -15,7 +15,7 @@ class Contacto extends Model
         'N_TelefonoFijo',
         'N_TelefonoMovil',
         'S_Email',
-        'tw_corporativos',
+        'tw_corporativos_id',
     ];
     
     public function corporativo(){

@@ -14,18 +14,9 @@ class ContactoController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $contactos = Contacto::all();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return $this->showAll($contactos);
     }
 
     /**
@@ -36,7 +27,7 @@ class ContactoController extends Controller
      */
     public function show(Contacto $contacto)
     {
-        //
+        return $this->showOne($contacto, '');
     }
 
     /**
@@ -48,7 +39,28 @@ class ContactoController extends Controller
      */
     public function update(Request $request, Contacto $contacto)
     {
-        //
+        $rules = [
+            'S_Nombre' => 'min:1|max:45',
+            'S_Puesto' => 'min:1|max:45',
+            'S_Comentarios' => 'min:1|max:255',
+            'N_TelefonoFijo' => 'numeric|min:8|max:12',
+            'N_TelefonoMovil' => 'numeric|min:10|max:12',
+            'S_Email' => 'email',
+        ];
+
+        $this->validate($request, $rules);
+
+        $contacto->fill($request->all());
+
+        if($contacto->isClean()){
+            return $this->errorResponse(
+                'El contacto debe tener por lo menos un atributo diferente para ser actualizado', 422);  
+        }
+
+        $contacto->save();
+
+        return $this->showOne($contacto, 'Contacto actualizado con éxito');
+
     }
 
     /**
@@ -59,6 +71,8 @@ class ContactoController extends Controller
      */
     public function destroy(Contacto $contacto)
     {
-        //
+        $contacto->delete();
+
+        return $this->showOne($contacto, 'El contacto se ha eliminado');
     }
 }

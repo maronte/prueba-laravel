@@ -34,7 +34,7 @@ class Corporativo extends Model
 
     public function empresas()
     {
-        return $this->hasMany('App\Empresa', 'tw_empresas_corporativos_id');
+        return $this->hasMany('App\Empresa', 'tw_corporativos_id');
     }
 
     protected function documentos()
