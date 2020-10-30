@@ -14,6 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Corporativos
+Route::apiResource('corporativos', 'CorporativoController');
+
+// Empresas
+Route::apiResource('empresas', 'EmpresaController')->except('store');
+
+Route::apiResource('corporativos.empresas', 'CorporativoEmpresaController')->only('store');
+
+// Contactos
+Route::apiResource('contactos', 'ContactoController')->except('store');
+
+Route::apiResource('corporativos.contactos', 'CorporativoContactoController')->only('store');
+
+// Documentos

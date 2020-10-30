@@ -35,6 +35,6 @@ class CreateCorporativosDocumentosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tw_corporativos_documentos_corporativos');
+        Schema::dropIfExists('tw_documentos_corporativos');
     }
 }

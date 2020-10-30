@@ -35,7 +35,7 @@ class CreateEmpresasTable extends Migration
 
  
             $table->tinyInteger('S_Activo');
-            $table->string('S_Comentarios', 255);
+            $table->string('S_Comentarios', 255)->nullable();
 
             $table->unsignedBigInteger('tw_corporativos_id');
 

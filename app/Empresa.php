@@ -21,7 +21,7 @@ class Empresa extends Model
         'S_Pais',
         'S_Estado',
         'S_Municipio',
-        'S_ColoniaLocali',
+        'S_ColoniaLocalidad',
         'S_Domicilio',
         'N_CodigoPostal',
         'S_UsoCFDI',
