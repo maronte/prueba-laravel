@@ -28,3 +28,13 @@ Route::apiResource('contactos', 'ContactoController')->except('store');
 Route::apiResource('corporativos.contactos', 'CorporativoContactoController')->only('store');
 
 // Documentos
+Route::apiResource('documentos', 'DocumentoController')->except('store');
+
+Route::apiResource('corporativos/{corporativo}/documentos', 
+                    'CorporativoDocumentoController')->only('store');
+
+// Documentos archivos
+Route::post('documentoarchivos/corporativos/{corporativo}/documentos/{documento}', 
+                    'DocumentoArchivoController@store');
+
+Route::apiResource('documentoarchivos', 'DocumentoArchivoController')->only(['update', 'destroy']); 

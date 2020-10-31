@@ -58,7 +58,7 @@ class CorporativoController extends Controller
         // Accedemos a las propiedades dinámicas del modelo para crearlas
         $corporativo->contacto;
         $corporativo->empresas;
-        $corporativo->documentos;
+        $corporativo->documentos = $corporativo->documentos;
         
         return $this->showOne($corporativo, '');
     }

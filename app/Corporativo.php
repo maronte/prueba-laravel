@@ -27,6 +27,10 @@ class Corporativo extends Model
         'D_FechaIncorporacion'
     ];
 
+    protected $hidden = [
+        'pivot'
+    ];
+
     public function contacto()
     {
         return $this->hasOne('App\Contacto','tw_corporativos_id');
@@ -37,7 +41,7 @@ class Corporativo extends Model
         return $this->hasMany('App\Empresa', 'tw_corporativos_id');
     }
 
-    protected function documentos()
+    public function documentos()
     {
         return $this->belongsToMany('App\Documento', 'tw_documentos_corporativos',
         'tw_documentos_id', 'tw_corporativos_id');

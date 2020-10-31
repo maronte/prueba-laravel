@@ -27,8 +27,6 @@ class CreateContactosTable extends Migration
             $table->bigInteger('N_TelefonoMovil')->nullable();
             $table->string('S_Email',255);
             $table->unsignedBigInteger('tw_corporativos_id')->unique();
-            $table->timestamps();
-            // $table->softDeletes();
 
             // Llaves foráneas
             $table->foreign('tw_corporativos_id')->references('id')->on('tw_corporativos');

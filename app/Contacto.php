@@ -17,6 +17,8 @@ class Contacto extends Model
         'S_Email',
         'tw_corporativos_id',
     ];
+
+    public $timestamps = false;
     
     public function corporativo(){
         return $this->belongsTo('tw_corporativos', 'tw_corporativos');
