@@ -18,23 +18,22 @@ use Illuminate\Support\Facades\Route;
 Route::apiResource('corporativos', 'CorporativoController');
 
 // Empresas
+Route::post('empresas/corporativos/{corporativo}', 'EmpresaController@store');
+
 Route::apiResource('empresas', 'EmpresaController')->except('store');
 
-Route::apiResource('corporativos.empresas', 'CorporativoEmpresaController')->only('store');
-
 // Contactos
+Route::post('contactos/corporativos/{corporativo}', 'ContactoController@store');
+
 Route::apiResource('contactos', 'ContactoController')->except('store');
 
-Route::apiResource('corporativos.contactos', 'CorporativoContactoController')->only('store');
-
 // Documentos
-Route::apiResource('documentos', 'DocumentoController')->except('store');
+Route::post('documentos/corporativos/{corporativo}', 'DocumentoController@store');
 
-Route::apiResource('corporativos/{corporativo}/documentos', 
-                    'CorporativoDocumentoController')->only('store');
+Route::apiResource('documentos', 'DocumentoController')->except('store');
 
 // Documentos archivos
 Route::post('documentoarchivos/corporativos/{corporativo}/documentos/{documento}', 
-                    'DocumentoArchivoController@store');
+            'DocumentoArchivoController@store');
 
 Route::apiResource('documentoarchivos', 'DocumentoArchivoController')->only(['update', 'destroy']); 

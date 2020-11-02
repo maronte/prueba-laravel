@@ -15,7 +15,11 @@ class Documento extends Model
     protected $fillable = [
         'S_Nombre',
         'N_Obligatorio',
-        'S_Descripción',
+        'S_Descripcion',
+    ];
+
+    protected $hidden = [
+        'pivot'
     ];
 
     public $timestamps = false;

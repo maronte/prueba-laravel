@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Corporativo;
+use App\Http\Resources\CorporativoResource;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -55,12 +56,7 @@ class CorporativoController extends Controller
      */
     public function show(Corporativo $corporativo)
     {   
-        // Accedemos a las propiedades dinámicas del modelo para crearlas
-        $corporativo->contacto;
-        $corporativo->empresas;
-        $corporativo->documentos = $corporativo->documentos;
-        
-        return $this->showOne($corporativo, '');
+        return new CorporativoResource($corporativo);
     }
 
     /**
